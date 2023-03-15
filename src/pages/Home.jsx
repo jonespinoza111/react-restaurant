@@ -1,6 +1,8 @@
 import React from "react";
+import AboutSection from "../components/AboutSection";
 import DishesSection from "../components/DishesSection";
 import Footer from "../components/Footer";
+import ReviewSection from "../components/ReviewSection";
 
 const Home = () => {
   return (
@@ -9,10 +11,6 @@ const Home = () => {
         <div className="h-auto">
           <div className="w-[100%] flex flex-row text-start mb-10">
             <h2 className="text-yellow-300 leading-none w-[6em] text-[2em] ">
-            {/* <img
-                className="w-[45px] h-[45px] mt-5"
-                src="../src/assets/star-icon.png"
-              />  */}
               Find <span className="text-white">Restaurants Near</span> You
             </h2>
           </div>
@@ -33,6 +31,8 @@ const Home = () => {
         />
       </section>
       <DishesSection />
+      <AboutSection />
+      <ReviewSection />
       <Footer />
     </div>
   );
