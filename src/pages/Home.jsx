@@ -7,7 +7,7 @@ import ReviewSection from "../components/ReviewSection";
 const Home = () => {
   return (
     <div>
-      <section className="hero-image flex flex-row justify-center items-center bg-black text-white px-10">
+      <section className="hero-image flex flex-col lg:flex-row justify-center items-center bg-black text-white px-10">
         <div className="h-auto">
           <div className="w-[100%] flex flex-row text-start mb-10">
             <h2 className="text-yellow-300 leading-none w-[6em] text-[2em] ">
@@ -26,7 +26,7 @@ const Home = () => {
           </div>
         </div>
         <img
-          className="w-[700px] h-[700px]"
+          className="mt-10 lg:mt-0 w-[350px] h-[350px] lg:w-[700px] lg:h-[700px]"
           src="../src/assets/noodles-hero.jpg"
         />
       </section>
