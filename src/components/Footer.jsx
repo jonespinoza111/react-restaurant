@@ -6,7 +6,7 @@ const Footer = () => {
     const nums = [0, 0, 0, 0];
   return (
     <>
-    <div className="h-auto relative">
+    <section id="contact" className="h-auto relative">
         <div className="h-auto">
             <img className='relative w-[100%] min-h-[48em] sm:min-h-0 h-auto sm:h-[44em] md:h-[25em] lg:h-[15em]' src='../src/assets/background-2.jpg' />
         </div>
@@ -66,7 +66,7 @@ const Footer = () => {
             </h3>
           </div>
       </div>
-    </div>
+    </section>
     <div className="flex flex-row justify-center items-center px-[1em] md:px-0 py-[2em] border-t-2 bg-black">
         <h4 className="text-white text-base">All Rights Reserved. @2045 Nam efficitur quam nulla, eget accumsan justo laoreet eu.</h4>
     </div>

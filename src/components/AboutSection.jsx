@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutSection = () => {
   return (
-    <div className="bg-black flex flex-col  items-center xl:flex-row">
+    <section id="about" className="bg-black flex flex-col  items-center xl:flex-row">
       <div className="left-side flex flex-col items-center  w-[90%] xl:w-[50%] h-auto pl-[1em] xl:px-[2em] py-[2em]">
         <div className="w-auto xl:w-[100%] flex flex-row text-start mb-10">
           <h2 className="text-white leading-none w-[6em] text-[1.5em] sm:text-[2em] uppercase">
@@ -36,7 +36,7 @@ const AboutSection = () => {
           src="../src/assets/about-us-cook.jpg"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const ReviewSection = () => {
   return (
-    <div className="flex flex-col justify-start py-[2em] bg-white">
+    <div id="reviews" className="flex flex-col justify-start py-[2em] bg-white">
         <div className="">
             <h2 className="text-black leading-none w-auto text-[1.5em] sm:text-[2em] uppercase">
               Customer Reviews

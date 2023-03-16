@@ -2,7 +2,7 @@ import React from "react";
 
 const MainSection = () => {
   return (
-    <section className="hero-image py-10 lg:py-0 flex flex-col lg:flex-row justify-center items-center bg-black text-white px-10">
+    <section id="main" className="hero-image py-10 lg:py-0 flex flex-col lg:flex-row justify-center items-center bg-black text-white px-10">
       <div className="h-auto">
         <div className="w-[100%] flex flex-row text-start mb-10">
           <h2 className="text-yellow-300 leading-none w-[6em] text-[1.5em] sm:text-[2em] ">
