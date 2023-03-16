@@ -8,7 +8,7 @@ const ReviewSection = () => {
               Customer Reviews
             </h2>
         </div>
-        <div className="flex flex-col xl:flex-row items-center xl:items-start justify-center py-[2em] gap-y-[2em] xl:gap-y-0 xl:gap-x-[2em]">
+        <div className="flex flex-col md:flex-row md:flex-wrap items-center xl:items-start justify-center py-[2em] gap-y-[2em] xl:gap-y-0 md:gap-x-[2em]">
         <div className="quote-card flex flex-col items-center justify-center w-[80%] sm:w-[11em] shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
             <div className="">
             <img
