@@ -19,20 +19,20 @@ const Footer = () => {
             <h2 className="uppercase">Subscribe</h2>
             <div className="border-t-2 mt-4 pt-4">
                 <input type="text" className="w-[100%] md:w-[90%] bg-black border-2 h-[3.5em] px-4 text-[16px]" placeholder="Enter email" />
-                <button className="text-lg px-3 py-2 text-700 font-bold bg-red-600 w-[100%] md:w-[90%] mt-2">
+                <button className="text-lg px-3 py-2 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75 w-[100%] md:w-[90%] mt-2">
                     Subscribe
                 </button>
                 <div className="icons-container w-auto h-auto flex flex-row gap-x-4 mt-6">
-                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white rounded flex justify-center items-center cursor-pointer">
+                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white hover:bg-[#c4c4c4] transition-colors duration-75 rounded flex justify-center items-center cursor-pointer">
                         <FontAwesomeIcon icon={faFacebookF} />
                     </div>
-                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white rounded flex justify-center items-center cursor-pointer">
+                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white hover:bg-[#c4c4c4] transition-colors duration-75 rounded flex justify-center items-center cursor-pointer">
                         <FontAwesomeIcon icon={faTwitter} />
                     </div>
-                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white rounded flex justify-center items-center cursor-pointer">
+                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white hover:bg-[#c4c4c4] transition-colors duration-75 rounded flex justify-center items-center cursor-pointer">
                         <FontAwesomeIcon icon={faGooglePlusG} />
                     </div>
-                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white rounded flex justify-center items-center cursor-pointer">
+                    <div className="h-[1.7em] w-[1.7em] text-black  bg-white hover:bg-[#c4c4c4] transition-colors duration-75 rounded flex justify-center items-center cursor-pointer">
                         <FontAwesomeIcon icon={faInstagram} />
                     </div>
                 </div>

@@ -58,3 +58,7 @@
     text-decoration-line: none;
     -moz-text-decoration-line: none;
   }
+
+  .dog {
+    background-color: #c4c4c4;
+  }

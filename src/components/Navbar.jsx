@@ -45,7 +45,7 @@ const Navbar = () => {
             <div className='text-white flex flex-col gap-y-4 sm:gap-0 sm:flex-row justify-center justify-items-center'>
                 <button className="w-auto text-sm px-3 py-2 mx-1 border-2">Login</button>
                 <button className="text-sm px-3 py-2 mx-1 border-2 bg-white text-black no-underline">Register</button>
-                <button className="text-sm px-3 py-2 mx-1 text-700 font-bold bg-red-600 ">Order Now</button>
+                <button className="text-sm px-3 py-2 mx-1 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75">Order Now</button>
             </div>
         </div>
         </nav>

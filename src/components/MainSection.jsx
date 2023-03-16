@@ -15,7 +15,7 @@ const MainSection = () => {
           wonderful time.
         </p>
         <div className="w-[100%] flex flex-row text-start mt-5">
-          <button className="text-lg px-3 py-2 mx-1 text-700 font-bold bg-red-600 w-[10em]">
+          <button className="text-lg px-3 py-2 mx-1 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75 w-[10em]">
             Order Now
           </button>
         </div>
