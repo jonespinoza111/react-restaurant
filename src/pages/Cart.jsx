@@ -4,7 +4,7 @@ import TotalOrder from "../components/TotalOrder";
 import ShoppingCartContext from "../context/ShoppingCartContext";
 
 const Cart = () => {
-  const { cart } = useContext(ShoppingCartContext);
+  const { cart, clearCart } = useContext(ShoppingCartContext);
   let [total, setTotal] = useState(0);
   const calculateTotal = () => {
     let totalPrice =

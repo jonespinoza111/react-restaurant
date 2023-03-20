@@ -1,6 +1,8 @@
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const UPDATE_ITEM = "UPDATE_ITEM";
+export const CLEAR_CART = "CLEAR_CART";
+export const UPDATE_CHECKOUT_TOTAL = "UPDATE_CHECKOUT_TOTAL";
 
 const addItemToCart = (item, state) => {
   console.log("adding item", item);
@@ -51,6 +53,15 @@ const updateItemInCart = (itemId, newQuantity, state) => {
   return { ...state, cart: updatedCart };
 };
 
+const clearCart = (state) => {
+  let updatedCart = [];
+  return { ...state, cart: updatedCart }
+}
+
+const updateCheckoutTotal = (newTotal, state) => {
+  return { ...state, checkoutTotal: newTotal }
+}
+
 export const shopReducer = (state, action) => {
   switch (action.type) {
     case ADD_ITEM:
@@ -61,6 +72,12 @@ export const shopReducer = (state, action) => {
 
     case UPDATE_ITEM:
       return updateItemInCart(action.itemId, action.newQuantity, state);
+    
+    case CLEAR_CART:
+      return clearCart(state);
+
+    case UPDATE_CHECKOUT_TOTAL:
+      return updateCheckoutTotal(action.newTotal, state);
     default:
       return state;
   }
