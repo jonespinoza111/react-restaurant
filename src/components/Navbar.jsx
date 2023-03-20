@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const navigate = useNavigate();
     return (
         <nav className="flex flex-col lg:flex-row flex-wrap items-center justify-center md:justify-between px-4 py-3 bg-black lg:sticky top-0 z-50 shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
         <div className="w-auto flex flex-row justify-center items-center lg:w-auto lg:static lg:justify-center text-white">
@@ -12,7 +14,7 @@ const Navbar = () => {
                 <li className="nav-item flex flex-row justify-center justify-items-center">
                     <a
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    href="#main"
+                    href="/#main"
                     >
                     Home
                     </a>
@@ -20,7 +22,7 @@ const Navbar = () => {
                 <li className="nav-item flex flex-row justify-center justify-items-center">
                     <a
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    href="#about"
+                    href="/#about"
                     >
                     About
                     </a>
@@ -28,7 +30,7 @@ const Navbar = () => {
                 <li className="nav-item flex flex-row justify-center justify-items-center">
                     <a
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    href="#reviews"
+                    href="/#reviews"
                     >
                     Reviews
                     </a>
@@ -36,7 +38,7 @@ const Navbar = () => {
                 <li className="nav-item flex flex-row justify-center justify-items-center">
                     <a
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    href="#contact"
+                    href="/#contact"
                     >
                     Contact
                     </a>
@@ -45,7 +47,7 @@ const Navbar = () => {
             <div className='text-white flex flex-col gap-y-4 sm:gap-0 sm:flex-row justify-center justify-items-center'>
                 <button className="w-auto text-sm px-3 py-2 mx-1 border-2">Login</button>
                 <button className="text-sm px-3 py-2 mx-1 border-2 bg-white text-black no-underline">Register</button>
-                <button className="text-sm px-3 py-2 mx-1 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75">Order Now</button>
+                <button className="text-sm px-3 py-2 mx-1 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75" onClick={() => navigate('/menu')}>Order Now</button>
             </div>
         </div>
         </nav>

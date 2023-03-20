@@ -1,14 +1,18 @@
-import { useState } from 'react';
 import Navbar from './components/Navbar';
-import './App.css'
 import Home from './pages/Home';
+import { Route, Routes } from 'react-router-dom';
+import FoodMenu from './pages/FoodMenu';
+import './App.css'
 
 function App() {
 
   return (
     <div className="text-3xl font-bold text-center">
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path="/menu" element={<FoodMenu />} />
+      </Routes>
     </div>
   )
 }
