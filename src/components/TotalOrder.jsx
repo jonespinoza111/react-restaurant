@@ -6,7 +6,7 @@ const TotalOrder = ({ path = "", total = 0, totalItems = 1 }) => {
   const isCartEmpty = totalItems === 0;
 
   return (
-    <div className="total-container w-[13em] md:w-[13em] border-2 bg-white h-auto flex flex-col justify-start p-[1em] my-5 md:my-0 mb-[10em]">
+    <div className="total-container w-[13em] md:w-[13em] border-2 bg-white h-auto flex flex-col justify-start p-[1em] my-5 xl:my-0 mb-[10em]">
       <div className="row summary-row flex justify-between items-center px-[0.3em]">
         <span className="summary uppercase font-bold text-[0.8em]">
           Order Summary

@@ -3,7 +3,6 @@ import AboutSection from "../components/AboutSection";
 import DishesSection from "../components/DishesSection";
 import Footer from "../components/Footer";
 import MainSection from "../components/MainSection";
-import Navbar from "../components/Navbar";
 import ReviewSection from "../components/ReviewSection";
 
 const Home = () => {
