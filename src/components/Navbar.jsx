@@ -1,7 +1,9 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import ShoppingCartContext from '../context/ShoppingCartContext';
 
 const Navbar = () => {
+    const { cart } = useContext(ShoppingCartContext);
     const navigate = useNavigate();
     return (
         <nav className="flex flex-col lg:flex-row flex-wrap items-center justify-center md:justify-between px-4 py-3 bg-black lg:sticky top-0 z-50 shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
@@ -42,6 +44,16 @@ const Navbar = () => {
                     >
                     Contact
                     </a>
+                </li>
+                <li className="nav-item flex flex-row justify-center justify-items-center">
+                    <Link className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75' to={"/menu"}>
+                        Menu
+                    </Link>
+                </li>
+                <li className="nav-item flex flex-row justify-center justify-items-center">
+                    <Link className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75' to={"/cart"}>
+                        Cart ({cart.length})
+                    </Link>
                 </li>
             </ul>
             <div className='text-white flex flex-col gap-y-4 sm:gap-0 sm:flex-row justify-center justify-items-center'>
