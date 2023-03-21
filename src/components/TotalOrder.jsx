@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ShoppingCartContext from "../context/ShoppingCartContext";
 
-const TotalOrder = ({ path = "", total = 0, totalItems = 1 }) => {
+const TotalOrder = ({ path = "", total = 0, totalItems = 1, includeButton = true }) => {
+    console.log('big total ', typeof(total), total);
   const taxAmount = parseFloat((total * 0.085).toFixed(2));
   const isCartEmpty = totalItems === 0;
   const checkoutTotal = (total + taxAmount).toFixed(2);
@@ -38,7 +39,7 @@ const TotalOrder = ({ path = "", total = 0, totalItems = 1 }) => {
           ${checkoutTotal}
         </span>
       </div>
-      {path === "/checkout" ? (
+      {/* {path === "/checkout" ? (
         <div className="button-row mt-10">
           <button
             type="submit"
@@ -48,7 +49,8 @@ const TotalOrder = ({ path = "", total = 0, totalItems = 1 }) => {
             Place Order
           </button>
         </div>
-      ) : (
+      ) : ( */}
+      {includeButton && (
         <div className="button-row mt-10">
           <button
             type="button"

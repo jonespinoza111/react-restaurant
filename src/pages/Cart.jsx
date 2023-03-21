@@ -2,25 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import SingleItem from "../components/SingleItem";
 import TotalOrder from "../components/TotalOrder";
 import ShoppingCartContext from "../context/ShoppingCartContext";
+import { calculateTotal } from "../helper/helper";
 
 const Cart = () => {
   const { cart, clearCart } = useContext(ShoppingCartContext);
   let [total, setTotal] = useState(0);
-  const calculateTotal = () => {
-    let totalPrice =
-      cart.length &&
-      [...cart]
-        .map((item) => item.price * item.quantity)
-        .reduce((a, b) => a + b);
-
-    setTotal(totalPrice);
-  };
 
   useEffect(() => {
     if (cart) {
-      calculateTotal();
+      setTotal(calculateTotal(cart));
     }
-  }, [cart]);
+  }, [cart, calculateTotal]);
   return (
     <div className="cart flex flex-col items-center">
       <div className="row my-10 uppercase">Cart</div>
