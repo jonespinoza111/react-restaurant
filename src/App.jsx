@@ -7,6 +7,7 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import OrderProcessed from './pages/OrderProcessed';
 import './App.css'
+import OrderSearch from './pages/OrderSearch';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/order-complete" element={<OrderProcessed />} />
+          <Route path="/order-search" element={<OrderSearch />} />
         </Routes>
     </div>
   )

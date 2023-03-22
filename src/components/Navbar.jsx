@@ -18,21 +18,6 @@ const Navbar = () => {
                         Home
                     </Link>
                 </li>
-                {/* <li className="nav-item flex flex-row justify-center justify-items-center">
-                    <Link className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75' to={{ pathname: "/", hash: "#about" }} >
-                            About
-                    </Link>
-                </li>
-                <li className="nav-item flex flex-row justify-center justify-items-center">
-                    <Link className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75' to={"/#reviews"}>
-                        Reviews
-                    </Link>
-                </li>
-                <li className="nav-item flex flex-row justify-center justify-items-center">
-                    <Link className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75' to={"/#contact"}>
-                        Contact
-                    </Link>
-                </li> */}
                 <li className="nav-item flex flex-row justify-center justify-items-center">
                     <Link className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75' to={"/menu"}>
                         Menu
@@ -43,10 +28,12 @@ const Navbar = () => {
                         Cart ({cart.length})
                     </Link>
                 </li>
+                <li className="nav-item flex flex-row justify-center justify-items-center">
+                    <Link className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75' to={"/order-search"}>
+                        Find an Order
+                    </Link>
+                </li>
             </ul>
-            {/* <div className='text-white flex flex-col gap-y-4 sm:gap-0 sm:flex-row justify-center justify-items-center'>
-                <button className="text-sm px-3 py-2 mx-1 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75" onClick={() => navigate('/menu')}>Order Now</button>
-            </div> */}
         </div>
         </nav>
     )

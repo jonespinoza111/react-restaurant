@@ -9,7 +9,7 @@ const OrderProcessed = () => {
   const navigate = useNavigate();
 
   const updatePaymentReceived = async (orderNumber) => {
-    let response = await fetch("http://localhost:5000/payment-successful", {
+    await fetch("http://localhost:5000/payment-successful", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ orderNumber }),

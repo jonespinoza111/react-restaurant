@@ -4,10 +4,6 @@ const ReviewSection = () => {
   return (
     <div id="reviews" className="flex flex-col justify-start py-[2em] bg-white">
         <div className="">
-            {/* <h2 className="text-black leading-none w-auto text-[1.5em] sm:text-[2em] uppercase">
-              Customer Reviews
-            </h2> */}
-
             <h2 className="text-black leading-none w-auto text-[1em] sm:text-[1.1em] uppercase">
                 Customer Reviews
             </h2>
