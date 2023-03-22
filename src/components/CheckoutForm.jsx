@@ -11,12 +11,6 @@ const CheckoutForm = () => {
   const { checkoutTotal, cart } = useContext(ShoppingCartContext);
 
   const [radioValue, setRadioValue] = useState("female");
-  // const [userInfoFields, setUserInfoFields] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   phoneNumber: "",
-  // });
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -61,25 +55,9 @@ const CheckoutForm = () => {
     setRadioValue(e.target.value);
   };
 
-  // const handleTextInputChange = (e) => {
-  //   const value = evt.target.value;
-  //   console.log('eeee', e.target);
-
-  //   setUserInfoFields((prev) => {
-  //     return {
-  //       ...prev,
-  //       [evt.target.name]: value,
-  //     };
-  //   });
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Hi hi hi values fn", firstName);
-    console.log("Hi hi hi values ln ", lastName);
-    console.log("Hi hi hi values em", email);
-    console.log("Hi hi hi values pn", phoneNumber);
     if (!firstName || !lastName || !email) {
       return;
     }
@@ -100,7 +78,7 @@ const CheckoutForm = () => {
       checkoutTotal,
     };
 
-    const reponse = await fetch("http://localhost:5000/order-successful", {
+    const response = await fetch("http://localhost:5000/order-successful", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ orderDetails }),

@@ -4,6 +4,11 @@ export const UPDATE_ITEM = "UPDATE_ITEM";
 export const CLEAR_CART = "CLEAR_CART";
 export const UPDATE_CHECKOUT_TOTAL = "UPDATE_CHECKOUT_TOTAL";
 
+const initialState = [];
+
+export const initializer = (initialValue = initialState) => 
+  JSON.parse(localStorage.getItem("localCart")) || initialValue;
+
 const addItemToCart = (item, state) => {
   console.log("adding item", item);
   const updatedCart = [...state.cart];

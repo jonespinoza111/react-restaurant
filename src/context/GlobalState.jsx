@@ -1,6 +1,14 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import ShopContext from "./ShoppingCartContext";
-import { shopReducer, ADD_ITEM, REMOVE_ITEM, UPDATE_ITEM, CLEAR_CART, UPDATE_CHECKOUT_TOTAL } from "./reducers";
+import {
+  shopReducer,
+  ADD_ITEM,
+  REMOVE_ITEM,
+  UPDATE_ITEM,
+  CLEAR_CART,
+  UPDATE_CHECKOUT_TOTAL,
+  initializer,
+} from "./reducers";
 
 function GlobalState(props) {
   const menuItems = [
@@ -188,12 +196,18 @@ function GlobalState(props) {
     },
   ];
 
-  // const [cart, setCart] = useState([]);
+  const [cartState, dispatch] = useReducer(
+    shopReducer,
+    {
+      cart: [],
+      checkoutTotal: 0,
+    },
+    initializer
+  );
 
-  const [cartState, dispatch] = useReducer(shopReducer, {
-    cart: [],
-    checkoutTotal: 0,
-  });
+  useEffect(() => {
+    localStorage.setItem("localCart", JSON.stringify(cartState));
+  }, [cartState]);
 
   const addItemToCart = (item) => {
     dispatch({ type: ADD_ITEM, item });
@@ -208,12 +222,12 @@ function GlobalState(props) {
   };
 
   const clearCart = () => {
-    dispatch({ type: CLEAR_CART })
-  }
+    dispatch({ type: CLEAR_CART });
+  };
 
   const updateCheckoutTotal = (newTotal) => {
-    dispatch({ type: UPDATE_CHECKOUT_TOTAL, newTotal })
-  }
+    dispatch({ type: UPDATE_CHECKOUT_TOTAL, newTotal });
+  };
 
   return (
     <ShopContext.Provider
@@ -225,7 +239,7 @@ function GlobalState(props) {
         removeItemFromCart: removeItemFromCart,
         updateItemInCart: updateItemInCart,
         clearCart: clearCart,
-        updateCheckoutTotal: updateCheckoutTotal
+        updateCheckoutTotal: updateCheckoutTotal,
       }}
     >
       {props.children}
