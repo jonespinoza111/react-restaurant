@@ -4,8 +4,12 @@ const ReviewSection = () => {
   return (
     <div id="reviews" className="flex flex-col justify-start py-[2em] bg-white">
         <div className="">
-            <h2 className="text-black leading-none w-auto text-[1.5em] sm:text-[2em] uppercase">
+            {/* <h2 className="text-black leading-none w-auto text-[1.5em] sm:text-[2em] uppercase">
               Customer Reviews
+            </h2> */}
+
+            <h2 className="text-black leading-none w-auto text-[1em] sm:text-[1.1em] uppercase">
+                Customer Reviews
             </h2>
         </div>
         <div className="flex flex-col md:flex-row md:flex-wrap items-center xl:items-start justify-center py-[2em] gap-y-[2em] xl:gap-y-0 md:gap-x-[2em]">

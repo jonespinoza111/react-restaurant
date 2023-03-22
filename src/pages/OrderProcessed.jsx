@@ -8,11 +8,20 @@ const OrderProcessed = () => {
   const [searchParam] = useSearchParams();
   const navigate = useNavigate();
 
+  const updatePaymentReceived = async (orderNumber) => {
+    let response = await fetch("http://localhost:5000/payment-successful", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ orderNumber }),
+    });
+  }
+
   useEffect(() => {
     if (
       searchParam.get("payment_intent") &&
       searchParam.get("redirect_status") === "succeeded"
     ) {
+      updatePaymentReceived(searchParam.get("order_number"));
       localStorage.removeItem("localCart");
       clearCart();
       updateCheckoutTotal(0);

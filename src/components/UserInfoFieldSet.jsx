@@ -25,7 +25,7 @@ const UserInfoFieldSet = ({
           <TextField
             required
             id="outlined-basic"
-            className="w-[100%]"
+            className="w-[100%] bg-white"
             label="First Name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
@@ -37,7 +37,7 @@ const UserInfoFieldSet = ({
           <TextField
             required
             id="outlined-basic"
-            className="w-[100%]"
+            className="w-[100%] bg-white"
             label="Last Name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
@@ -51,7 +51,7 @@ const UserInfoFieldSet = ({
           <TextField
             required
             id="outlined-basic"
-            className="w-[100%]"
+            className="w-[100%] bg-white"
             label="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -62,7 +62,7 @@ const UserInfoFieldSet = ({
         <div className="input-container phone-number-input w-[48%]">
           <TextField
             id="outlined-basic"
-            className="w-[100%]"
+            className="w-[100%] bg-white"
             label="Phone Number"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}

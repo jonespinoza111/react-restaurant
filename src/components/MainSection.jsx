@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const MainSection = () => {
+  const navigate = useNavigate();
   return (
     <section id="main" className="hero-image py-10 lg:py-0 flex flex-col lg:flex-row justify-center items-center bg-black text-white px-10">
       <div className="h-auto">
@@ -15,9 +17,9 @@ const MainSection = () => {
           wonderful time.
         </p>
         <div className="w-[100%] flex flex-row text-start mt-5">
-          <button className="text-lg px-3 py-2 mx-1 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75 w-[10em]">
-            Order Now
-          </button>
+            <button className="text-lg px-3 py-2 mx-1 text-700 font-bold bg-red-600 hover:bg-red-700 transition-colors duration-75 w-[10em]" onClick={() => navigate('/menu')}>
+                Order Now
+            </button>
         </div>
       </div>
       <img

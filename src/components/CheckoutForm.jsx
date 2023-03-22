@@ -20,6 +20,14 @@ const CheckoutForm = () => {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const updatePaymentReceived = async () => {
+    let response = await fetch("http://localhost:5000/payment-successful", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+  }
+
   useEffect(() => {
     if (!stripe) {
       return;
@@ -37,6 +45,7 @@ const CheckoutForm = () => {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
+          updatePaymentReceived();
           break;
         case "processing":
           setMessage("Your payment is processing.");
@@ -84,13 +93,21 @@ const CheckoutForm = () => {
       body: JSON.stringify({ orderDetails }),
     });
 
+    const data = await response.json();
+
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://127.0.0.1:5173/order-complete",
+        return_url: `http://127.0.0.1:5173/order-complete?order_number=${data.order.orderNumber}`,
       },
-    });
+    })
+
+    // .then((result) => {
+    //   if (result.paymentIntent) {
+    //     updatePaymentReceived();
+    //   }
+    // });
 
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
@@ -110,6 +127,11 @@ const CheckoutForm = () => {
   return (
     <div className="w-[90%] md:w-[60%] lg:w-[40%] py-5 px-10 bg-slate-200">
       <form className="checkout-form w-[100%]" onSubmit={handleSubmit}>
+        <div className="row summary-row flex justify-center items-center mt-4 mb-5 px-[0.3em]">
+          <span className="summary uppercase font-bold text-[0.8em]">
+            Complete Your Order
+          </span>
+        </div>
         <UserInfoFieldSet
           firstName={firstName}
           lastName={lastName}
