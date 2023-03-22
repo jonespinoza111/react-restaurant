@@ -19,6 +19,7 @@ const OrderSearch = () => {
       setSearchError('');
     } else {
       console.log("getting the data was not a success");
+      setOrderDetails(null);
       setSearchError("Sorry! The order you searched was not found.");
     }
   };
