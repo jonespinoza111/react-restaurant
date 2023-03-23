@@ -25,8 +25,8 @@ const OrderSearch = () => {
   };
   return (
     <div className="order-search flex flex-col items-center">
-      <div className="row my-10 uppercase">Search for an order</div>
-      <form className="order-search-form w-[20em] flex flex-col items-center justify-center" onSubmit={searchOrder}>
+      <div className="row my-10 uppercase">Find an order</div>
+      <form className="order-search-form w-[80%] md:w-[20em] flex flex-col items-center justify-center" onSubmit={searchOrder}>
         <TextField
           id="outlined-search"
           className="w-[100%]"
@@ -44,7 +44,7 @@ const OrderSearch = () => {
           </button>
         </div>
         {searchError && (
-          <h3 className="text-[0.7em] w-[15em] font-thin">{searchError}</h3>
+          <h3 className="text-[0.7em] w-[80%] md:w-[15em] font-thin">{searchError}</h3>
         )}
         {orderDetails && (
           <OrderDetails info={orderDetails} />
