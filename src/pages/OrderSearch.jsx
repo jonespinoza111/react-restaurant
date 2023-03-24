@@ -44,7 +44,7 @@ const OrderSearch = () => {
           </button>
         </div>
         {searchError && (
-          <h3 className="text-[0.7em] w-[80%] md:w-[15em] font-thin">{searchError}</h3>
+          <h3 className="text-[0.7em] w-[80%] md:w-[15em] font-thin text-red-700">{searchError}</h3>
         )}
         {orderDetails && (
           <OrderDetails info={orderDetails} />
