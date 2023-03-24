@@ -3,10 +3,13 @@ import { useElements, useStripe } from "@stripe/react-stripe-js";
 import BillingInfoFieldSet from "./BillingInfoFieldSet";
 import UserInfoFieldSet from "./UserInfoFieldSet";
 import ShoppingCartContext from "../context/ShoppingCartContext";
+import { useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   const { checkoutTotal, cart } = useContext(ShoppingCartContext);
 
@@ -20,46 +23,6 @@ const CheckoutForm = () => {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const updatePaymentReceived = async () => {
-    let response = await fetch("http://localhost:5000/payment-successful", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-  }
-
-  useEffect(() => {
-    if (!stripe) {
-      return;
-    }
-
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
-
-    if (!clientSecret) {
-      return;
-    }
-
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
-          updatePaymentReceived();
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
-      }
-    });
-  }, [stripe]);
-
   const handlePaymentTypeChange = (e) => {
     setRadioValue(e.target.value);
   };
@@ -67,8 +30,35 @@ const CheckoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    let orderDetails = {
+      name: `${firstName} ${lastName}`,
+      email,
+      phoneNumber,
+      cart,
+      checkoutTotal,
+      paymentReceived: true
+    };
+
     if (!firstName || !lastName || !email) {
       return;
+    }
+
+    if (radioValue === 'male') {
+      orderDetails.paymentReceived = false;
+      let orderResult = await fetch("http://localhost:5000/order-successful", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderDetails }),
+      })
+
+      orderResult = await orderResult.json()
+
+      if (orderResult.success) {
+        navigate(`/order-complete?order_number=${orderResult.order.orderNumber}`);
+      } else {
+        setMessage('The order could not be created.');
+        return;
+      }
     }
 
     if (!stripe || !elements) {
@@ -79,44 +69,39 @@ const CheckoutForm = () => {
 
     setIsLoading(true);
 
-    let orderDetails = {
-      name: `${firstName} ${lastName}`,
-      email,
-      phoneNumber,
-      cart,
-      checkoutTotal,
-    };
 
-    const response = await fetch("http://localhost:5000/order-successful", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ orderDetails }),
-    });
-
-    const data = await response.json();
-
-    const { error } = await stripe.confirmPayment({
+    let stripeResult = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `http://127.0.0.1:5173/order-complete?order_number=${data.order.orderNumber}`,
+        return_url: `http://127.0.0.1:5173/order-complete`,
       },
+      redirect: 'if_required'
     })
 
-    // .then((result) => {
-    //   if (result.paymentIntent) {
-    //     updatePaymentReceived();
-    //   }
-    // });
 
-    // This point will only be reached if there is an immediate error when
-    // confirming the payment. Otherwise, your customer will be redirected to
-    // your `return_url`. For some payment methods like iDEAL, your customer will
-    // be redirected to an intermediate site first to authorize the payment, then
-    // redirected to the `return_url`.
+    if (!stripeResult.error) {
+      console.log("no stripe payment error ");
+      let orderResult = await fetch("http://localhost:5000/order-successful", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderDetails }),
+      })
 
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
+      orderResult = await orderResult.json()
+
+      if (orderResult.success) {
+        navigate(`/order-complete?order_number=${orderResult.order.orderNumber}`);
+      } else {
+        setMessage('The order could not be created.');
+      }
+    }
+    
+    console.log('strip result &&& order result ', stripeResult);
+
+
+    if (stripeResult.error.type === "card_error" || stripeResult.error.type === "validation_error") {
+      setMessage(stripeResult.error.message);
     } else {
       setMessage("An unexpected error occurred.");
     }
@@ -151,10 +136,10 @@ const CheckoutForm = () => {
             className="checkout-btn remove-btn text-white w-[100%] text-sm py-4 md:py-4 text-700 font-bold bg-black hover:bg-[#454545] transition-colors duration-75 "
             disabled={isLoading || !stripe || !elements}
           >
-            Place Order
+            {isLoading ? (<CircularProgress />) : 'Place Order'}
           </button>
         </div>
-        {message && <div id="payment-message">{message}</div>}
+        {message && <div id="payment-message" className="text-[0.7em] w-[80%] md:w-[100%] font-thin text-center text-red-700">{message}</div>}
       </form>
     </div>
   );

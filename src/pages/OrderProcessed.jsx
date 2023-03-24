@@ -8,20 +8,9 @@ const OrderProcessed = () => {
   const [searchParam] = useSearchParams();
   const navigate = useNavigate();
 
-  const updatePaymentReceived = async (orderNumber) => {
-    await fetch("http://localhost:5000/payment-successful", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ orderNumber }),
-    });
-  }
-
   useEffect(() => {
-    if (
-      searchParam.get("payment_intent") &&
-      searchParam.get("redirect_status") === "succeeded"
-    ) {
-      updatePaymentReceived(searchParam.get("order_number"));
+    window.scrollTo(0, 0);
+    if (searchParam.get("order_number")) {
       localStorage.removeItem("localCart");
       clearCart();
       updateCheckoutTotal(0);
@@ -35,6 +24,9 @@ const OrderProcessed = () => {
       <div className="row my-10 uppercase">Order Complete</div>
       <h3 className="text-[0.7em] w-[15em] font-thin">
         Thank you for your order!
+      </h3>
+      <h3 className="text-[0.7em] w-[15em] my-5 font-thin">
+        Order Number: #{searchParam.get("order_number")}
       </h3>
       <h3 className="text-[0.7em] w-[15em] font-thin">
         Your food will be ready in about 35 minutes
