@@ -45,7 +45,7 @@ const CheckoutForm = () => {
 
     if (radioValue === 'male') {
       orderDetails.paymentReceived = false;
-      let orderResult = await fetch("http://localhost:5000/order-successful", {
+      let orderResult = await fetch("https://orders-server-7xkr.onrender.com/order-successful", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ orderDetails }),
@@ -74,15 +74,14 @@ const CheckoutForm = () => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `http://127.0.0.1:5173/order-complete`,
+        return_url: `/order-complete`,
       },
       redirect: 'if_required'
     })
 
 
     if (!stripeResult.error) {
-      console.log("no stripe payment error ");
-      let orderResult = await fetch("http://localhost:5000/order-successful", {
+      let orderResult = await fetch("https://orders-server-7xkr.onrender.com/order-successful", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ orderDetails }),

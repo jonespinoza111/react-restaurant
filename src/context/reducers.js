@@ -10,7 +10,6 @@ export const initializer = (initialValue = initialState) =>
   JSON.parse(localStorage.getItem("localCart")) || initialValue;
 
 const addItemToCart = (item, state) => {
-  console.log("adding item", item);
   const updatedCart = [...state.cart];
   const updatedItemIndex = updatedCart.findIndex(
     product => product.id === item.id
@@ -30,7 +29,6 @@ const addItemToCart = (item, state) => {
 };
 
 const removeItemFromCart = (itemId, state) => {
-  console.log("remove item: " + itemId);
   const updatedCart = [...state.cart];
   const updatedItemIndex = updatedCart.findIndex(product => product.id === itemId);
 

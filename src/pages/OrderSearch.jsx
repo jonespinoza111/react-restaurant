@@ -10,15 +10,13 @@ const OrderSearch = () => {
   const searchOrder = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`http://localhost:5000/order${searchValue}`);
+    const response = await fetch(`https://orders-server-7xkr.onrender.com/order${searchValue}`);
     const data = await response.json();
 
     if (data.success) {
-      console.log("data is back now ", data.order[0]);
       setOrderDetails(data.order[0]);
       setSearchError('');
     } else {
-      console.log("getting the data was not a success");
       setOrderDetails(null);
       setSearchError("Sorry! The order you searched was not found.");
     }

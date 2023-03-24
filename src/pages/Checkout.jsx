@@ -27,7 +27,7 @@ const Checkout = () => {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     if (cart) {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://orders-server-7xkr.onrender.com/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ cart }),
