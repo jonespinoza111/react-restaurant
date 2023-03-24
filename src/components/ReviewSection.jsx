@@ -13,7 +13,7 @@ const ReviewSection = () => {
             <div className="">
             <img
                 className="relative w-[100%] h-[12em]"
-                src="../src/assets/fake-customer-1.jpg"
+                src="/assets/fake-customer-1.jpg"
             />
             </div>
             <div className="info-card text-black flex flex-col px-10 py-5 bg-white h-auto sm:h-[14em]">
@@ -32,7 +32,7 @@ const ReviewSection = () => {
             <div>
             <img
                 className="relative w-[100%] h-[12em]"
-                src="../src/assets/fake-customer-2.jpg"
+                src="/assets/fake-customer-2.jpg"
             />
             </div>
             <div className="info-card text-black flex flex-col px-10 py-5 bg-white h-auto sm:h-[14em]">
@@ -49,7 +49,7 @@ const ReviewSection = () => {
             <div>
             <img
                 className="relative w-[100%] h-[12em]"
-                src="../src/assets/fake-customer-3.jpg"
+                src="/assets/fake-customer-3.jpg"
             />
             </div>
             <div className="info-card text-black flex flex-col px-10 py-5 bg-white h-auto sm:h-[14em]">

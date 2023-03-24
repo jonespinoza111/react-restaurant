@@ -8,7 +8,7 @@ const Footer = () => {
     <>
     <section id="contact" className="h-auto relative">
         <div className="h-auto">
-            <img className='relative w-[100%] min-h-[48em] sm:min-h-0 h-auto sm:h-[44em] md:h-[25em] lg:h-[15em]' src='../src/assets/background-2.jpg' />
+            <img className='relative w-[100%] min-h-[48em] sm:min-h-0 h-auto sm:h-[44em] md:h-[25em] lg:h-[15em]' src='/assets/background-2.jpg' />
         </div>
       <div className="absolute top-0 flex flex-grow h-auto min-h-[48em] md:min-h-0 md:h-[100%] flex-col md:flex-row  flex-nowrap md:flex-wrap lg:flex-nowrap justify-center sm:justify-start gap-y-20 md:gap-y-0 md:justify-center items-center md:items-start lg:items-center py-10 bg-black bg-opacity-50">
         <div className="h-auto md:h-[10em] w-[80%] md:w-[45%] lg:w-[22%] mx-4 bg-transparent text-white text-left">

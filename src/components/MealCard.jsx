@@ -12,7 +12,7 @@ const MealCard = ({ info }) => {
         <img
           className="meal-image w-[100%] h-[100%]"
           alt={name}
-          src={`../src/assets/menu${imageURL}`}
+          src={`/assets/menu${imageURL}`}
         />
       </div>
       <div className="extra my-2">

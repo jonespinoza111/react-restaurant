@@ -33,7 +33,7 @@ const AboutSection = () => {
       <div className="right-side w-[80%] xl:w-[50%] flex justify-center items-center pb-[2em] sm:py-[2em]">
         <img
           className="w-[80%] xl:w-[600px] h-[300px] sm:h-[600px]"
-          src="../src/assets/about-us-cook.jpg"
+          src="/assets/about-us-cook.jpg"
         />
       </div>
     </section>

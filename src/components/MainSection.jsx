@@ -24,7 +24,7 @@ const MainSection = () => {
       </div>
       <img
         className="mt-10 lg:mt-0 w-[350px] h-[350px] lg:w-[650px] lg:h-[650px] xlg:w-[700px] xlg:h-[700px]"
-        src="../src/assets/noodles-hero.jpg"
+        src="/assets/noodles-hero.jpg"
       />
     </section>
   );

@@ -33,7 +33,7 @@ const MenuMain = () => {
         <div className="w-[500px] h-[500px] bg-blue-200 rounded">
           <img
             className="mt-10 rounded lg:mt-0 w-[350px] h-[350px] lg:w-[100%] lg:h-[650px] xl:w-[100%] xl:h-[100%]"
-            src="../src/assets/menu/kung-pao-chicken.jpg"
+            src="/assets/menu/kung-pao-chicken.jpg"
           />
         </div>
       </section> */}

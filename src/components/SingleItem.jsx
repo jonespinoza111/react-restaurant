@@ -37,7 +37,7 @@ const SingleItem = ({ info }) => {
   return (
     <li className="meal-item flex flex-col md:flex-row md:justify-start w-[10em] md:w-[100%] md:border-t-2 my-5 md:my-0 border-black shadow-md">
       <div className="meal-image-container row-item w-[100%] h-[6em] md:w-[150px] md:h-[120px] p-0 flex flex-row justify-start items-center">
-        <img className="meal-image h-[100%] w-[100%] object-cover" src={`../src/assets/menu${imageURL}`} alt={name} />
+        <img className="meal-image h-[100%] w-[100%] object-cover" src={`/assets/menu${imageURL}`} alt={name} />
       </div>
       <div className="meal-desc row-item w-[100%] h-auto md:w-[160px] md:h-[120px] py-5 md:mx-[20px] md:p-0 flex flex-row justify-center md:justify-start items-center">
         <span className="name text-[0.7em] capitalize text-left">{name}</span>
