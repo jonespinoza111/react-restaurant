@@ -8,6 +8,7 @@ Features and technology included in this project are:
 - Online Ordering
 - Cart System
 - MERN stack
+- Tailwind
 - Stripe Payments
 
 **Visit stie here:** 
