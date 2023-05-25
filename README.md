@@ -13,7 +13,7 @@ Features and technology included in this project are:
 
 **Visit stie here:** 
 
-[Hot Star Hunan Grill](hot-star-hunan-grill.netlify.app)
+[Hot Star Hunan Grill](https://hot-star-hunan-grill.netlify.app)
 
 
 **Server Code:**
