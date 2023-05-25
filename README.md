@@ -1,4 +1,4 @@
-# react-restaurant
+# Hot Star Hunan Grill
 
 A website for a Chinese restaurant called the Hot Star Hunan Grill. It has a landing page, a full menu, and allows you to place orders.
 Features and technology included in this project are:
