@@ -95,9 +95,6 @@ const CheckoutForm = () => {
         setMessage('The order could not be created.');
       }
     }
-    
-    console.log('strip result &&& order result ', stripeResult);
-
 
     if (stripeResult.error.type === "card_error" || stripeResult.error.type === "validation_error") {
       setMessage(stripeResult.error.message);

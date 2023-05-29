@@ -35,7 +35,6 @@ const Checkout = () => {
           .then((res) => res.json())
           .then((data) => {
             setClientSecret(data.clientSecret);
-            console.log('Client Secret here ', data.clientSecret);
           })
     }
   }, [cart]);

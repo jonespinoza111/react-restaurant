@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import ShoppingCartContext from "../context/ShoppingCartContext";
 
 const TotalOrder = ({ path = "", total = 0, totalItems = 1, includeButton = true }) => {
-    console.log('big total ', typeof(total), total);
   const taxAmount = parseFloat((total * 0.085).toFixed(2));
   const isCartEmpty = totalItems === 0;
   const checkoutTotal = (total + taxAmount).toFixed(2);

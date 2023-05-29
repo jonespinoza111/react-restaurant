@@ -38,8 +38,6 @@ const removeItemFromCart = (itemId, state) => {
 };
 
 const updateItemInCart = (itemId, newQuantity, state) => {
-  console.log('updating item: ', itemId);
-
   const updatedCart = [...state.cart];
   const updatedItemIndex = updatedCart.findIndex(product => product.id === itemId);
 
