@@ -46,6 +46,7 @@ const Checkout = () => {
   const options = {
     clientSecret,
     appearance,
+    loader: 'auto'
   };
 
   return (
