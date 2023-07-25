@@ -51,14 +51,14 @@ const Checkout = () => {
 
   return (
       <div className='checkout-page flex flex-col items-center pt-[2em] pb-[10em]'>
-        {clientSecret && (
+        {clientSecret ? (
             <Elements stripe={stripePromise} options={options}>
                 <div className='flex flex-col justify-start items-center xl:flex-row w-[100%] xl:justify-center xl:items-start'>
                     <CheckoutForm />
                     {total > 0 && <TotalOrder total={total} totalItems={cart && cart.length} includeButton={false} />}
                 </div>
             </Elements>
-        )}
+        ) : <span>Preparing checkout page...</span>}
       </div>
   )
 }
