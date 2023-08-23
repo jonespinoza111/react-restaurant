@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const Footer = () => {
-    const nums = [0, 0, 0, 0];
   return (
     <>
     <section id="contact" className="h-auto relative">
